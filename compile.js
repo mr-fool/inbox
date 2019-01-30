@@ -25,5 +25,3 @@ for (var contractName in output.contracts['inbox.sol']) {
 	console.log(contractName + ': ' + output.contracts['inbox.sol'][contractName].evm.bytecode.object)
 }
 
-
-console.log( solc.compile(source, 1) );

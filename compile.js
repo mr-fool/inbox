@@ -17,8 +17,8 @@ var input = {
 	}
 }
 
-var output = JSON.parse(solc.compile(JSON.stringify(input)))
-
+var output = JSON.parse(solc.compile(JSON.stringify(input)));
+console.log(output);
 // `output` here contains the JSON output as specified in the documentation
 for (var contractName in output.contracts['inbox.sol']) {
 	console.log(contractName + ': ' + output.contracts['inbox.sol'][contractName].evm.bytecode.object)

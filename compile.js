@@ -1,7 +1,29 @@
 const path = require('path');
 const fs = require('fs');
+const solc = require('solc');
+var input = {
+	language: 'Solidity',
+	sources: {
+		'inbox.sol': {
+			content:  fs.readFileSync("contracts/inbox.sol")
+		}
+	},
+	settings: {
+		outputSelection: {
+			'*': {
+				'*': [ '*' ]
+			}
+		}
+	}
+}
 
+var output = JSON.parse(solc.compile(JSON.stringify(input)))
 
-const inboxPath = path.resolve(__dirname,'contracts','Indox.sol');
-const source = fs.readFileSync(indoxPath, 'utf8');
+// `output` here contains the JSON output as specified in the documentation
+for (var contractName in output.contracts['inbox.sol']) {
+	console.log(contractName + ': ' + output.contracts['inbox.sol'][contractName].evm.bytecode.object)
+}
+const inboxPath = path.resolve(__dirname,'contracts','inbox.sol');
+const source = fs.readFileSync(inboxPath, 'utf8');
 
+console.log( solc.compile(source, 1) );

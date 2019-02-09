@@ -6,12 +6,11 @@ const web3 = new Web3(Web3.providers.HttpProvider(
 "http://localhost:8545"));
 
 
-beforeEach( () => {
+beforeEach(async () => {
 //Get a list of all accounts
-web3.eth.getAccounts()
-    .then( fetchedAccounts => {
-        console.log(fetchedAccounts);
-    });
+
+const accounts = await web3.eth.getAccounts();
+console.log(accounts);
 
 //Use one of those accounts to deploy 
 //the contract

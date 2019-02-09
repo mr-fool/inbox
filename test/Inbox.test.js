@@ -5,7 +5,7 @@ const Web3 = require('web3');
 const web3 = new Web3(ganache.provider());
 
 
-class Car {
+/*class Car {
     park() {
         return 'stopped';
     }
@@ -25,4 +25,4 @@ describe('Car', () => {
     it ('can drive', () => {
         assert.equal(car.drive(),'vroom');
     });
-});
+});*/

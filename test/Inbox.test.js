@@ -16,12 +16,10 @@ beforeEach( async () => {
 
 //Use one of those accounts to deploy 
 //the contract
-    inbox = await new web3.eth.Contract(JSON.parse(compiledFactory.interface))
-    .deploy({ data: '0x' + compiledFactory.bytecode, arguments: ['cyka blyat'] })
-    .send({ gas: '1000000', from: accounts[0] });
-    /*await new web3.eth.Contract(JSON.parse(interface))
+    inbox = await new web3.eth.Contract(JSON.parse(interface))
         .deploy(   {data: bytecode, arguments: ['cyka blyat'] })
-        .send({ from: accounts[0], gas: '1000000' })*/
+        .send({ from: accounts[0], gas: '1000000' })
+
 
 });
 

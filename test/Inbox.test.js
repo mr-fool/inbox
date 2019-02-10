@@ -6,7 +6,7 @@ const Web3 = require('web3');
 const web3 = new Web3(Web3.providers.HttpProvider(
 "http://localhost:8545"));
 
-const { abi, bytecode } = require('../compile');
+const { abi, evm } = require('../compile');
 
 let accounts;
 let inbox;
@@ -18,7 +18,7 @@ beforeEach( async () => {
 //the contract
     console.log(interface);
     inbox =  new web3.eth.Contract(abi)
-        .deploy(   {data: bytecode, arguments: ['cyka blyat'] })
+        .deploy(   {data: evm, arguments: ['cyka blyat'] })
         .send({ from: accounts[0], gas: '1000000' })
 
 

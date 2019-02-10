@@ -6,6 +6,8 @@ const Web3 = require('web3');
 const web3 = new Web3(Web3.providers.HttpProvider(
 "http://localhost:8545"));
 
+const { interface, bytyecode } = require('../compile');
+
 let accounts;
 beforeEach( async () => {
 //Get a list of all accounts

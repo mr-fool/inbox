@@ -17,7 +17,7 @@ beforeEach( async () => {
 //Use one of those accounts to deploy 
 //the contract
     console.log(abi);
-    inbox =  new web3.eth.Contract(abi)
+    inbox = await new web3.eth.Contract(abi)
         .deploy(   {data:  evm.bytecode.object, arguments: ['cyka blyat'] })
         .send({ from: accounts[0], gas: '1000000' })
 

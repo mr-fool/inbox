@@ -1,7 +1,7 @@
 const path = require('path');
 const fs = require('fs');
 const solc = require('solc');
-console.log(fs.readFileSync("contracts/inbox.sol") );
+//console.log(fs.readFileSync("contracts/inbox.sol") );
 var input = {
 	language: 'Solidity',
 	sources: {

@@ -21,9 +21,10 @@ var input = {
 var output = JSON.parse(solc.compile(JSON.stringify(input)));
 //console.log(output);
 // `output` here contains the JSON output as specified in the documentation
-/*for (var contractName in output.contracts['inbox.sol']) {
+for (var contractName in output.contracts['inbox.sol']) {
 	console.log(contractName + ': ' + output.contracts['inbox.sol'][contractName].evm.bytecode.object)
-}*/
+}
 /*module.exports = output.contracts["contracts/inbox.sol"].ContractName.evm.bytecode.object;
 module.exports = output.contracts["contracts/inbox.sol"].ContractName.abi;*/
-module.exports = output.contracts["contracts/inbox.sol"].ContractName;
+
+module.exports = output.contracts["inbox.sol"].ContractName;

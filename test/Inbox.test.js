@@ -10,6 +10,7 @@ const { abi, evm } = require('../compile');
 
 let accounts;
 let inbox;
+
 beforeEach( async () => {
 //Get a list of all accounts
     accounts = await web3.eth.getAccounts();
@@ -26,6 +27,10 @@ beforeEach( async () => {
 
 describe('Inbox', () => {
     it('deploys a contract', () => {
-        console.log(inbox);
+        assert.ok(inbox.options.address);
     } );
+    it('has a default message', async () => {
+            const message = await inbox.methods.message().call();
+            assert.equal(message, 'cyka blyat');
+    });
 });

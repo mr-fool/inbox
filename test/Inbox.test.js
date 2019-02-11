@@ -34,4 +34,9 @@ describe('Inbox', () => {
             const message = await inbox.methods.message().call();
             assert.equal(message, 'cyka blyat');
     });
+    it ('can change the message', async () => {
+        await inbox.methods.setMessage('blin').send({ from: accounts[0],gas: '1000000' });
+        const message = await inbox.methods.message().call();
+        assert.equal(message, 'blin');
+    });
 });

@@ -1,6 +1,6 @@
 const HDWalletProvider = require('truffle-hdwallet-provider');
 const Web3 = require('web3');
-const { abi, evm } = require('../compile');
+const { abi, evm } = require('./compile');
 
 //Don't put your real metamask address there
 const provider = new HDWalletProvider (
@@ -17,7 +17,7 @@ const deploy = async () => {
 
     const result = await new web3.eth.Contract(abi)
     .deploy({data: evm.bytecode.object , arguments: ['Hi there!']}) // add 0x bytecode
-    .send({from: accounts[0]}); // remove 'gas'
+    .send({from: accounts[0], gas: '1000000'}); // remove 'gas'
 
 
     console.log('Contract deployed to', result.options.address);
